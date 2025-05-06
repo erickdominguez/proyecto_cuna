@@ -1,0 +1,43 @@
+# === Global ===
+.DS_Store
+*.log
+.env
+.env.*
+
+# === Expo / React Native (cuna_app) ===
+cuna_app/node_modules/
+cuna_app/.expo/
+cuna_app/.expo-shared/
+cuna_app/dist/
+cuna_app/web-build/
+cuna_app/metro-cache/
+cuna_app/npm-debug.log*
+cuna_app/yarn-debug.log*
+cuna_app/yarn-error.log*
+cuna_app/__generated__/
+
+# Android/iOS artifacts (por si agregas natively)
+cuna_app/android/
+cuna_app/ios/
+
+# === Python (modelo) ===
+modelo/__pycache__/
+modelo/*.py[cod]
+modelo/.pytest_cache/
+modelo/.ipynb_checkpoints/
+modelo/venv/
+modelo/env/
+modelo/.venv/
+modelo/.mypy_cache/
+modelo/*.sqlite3
+
+# === API (si también es Python o tiene dependencias) ===
+API/__pycache__/
+API/*.py[cod]
+API/.pytest_cache/
+API/.ipynb_checkpoints/
+API/venv/
+API/env/
+API/.venv/
+API/.mypy_cache/
+API/*.sqlite3
