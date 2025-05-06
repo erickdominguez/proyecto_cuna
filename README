@@ -1,0 +1,40 @@
+En este proyecto de actualización de inteligencia artificial se encuentra dividido en dos:
+MODELO
+    Podremos encontrar los archivos para generar nuestro modelo 
+    asi como las iteraciones del mismo modelo
+    Antes de realizar cualquier operación en esta carpeta debemos activar nuestro ambiente virtual contenedor
+
+        source venv/bin/activate
+
+    En la carpeta scripts podremos encontrar los diversos scripts usados durante la 
+    realización del documento
+    Asi mismo podemos encontrar el dataset y sus transformaciones durante proceso de entrenar el modelo
+        dataset - contiene las imagenes que se usaran para entrenar en sus clases originales pero filtradas por calidad
+        dataset_augmented - contiene las muestras de las clases que fueron procesadas por data_augmentation
+        dataset_split - contiene las muestras organizadas por las nuevas clases train, val y test
+        padded_dataset_split contiene las muestras procesadas para entrenar nuestro modelo
+    Para poder testear el modelo localmente se utilizo un contenedor de tensorflow de docker ya listo para usarse
+    solo tenemos que descargar docker y correr el siguiente comando adaptado a nuestra maquina
+        docker run -d --name tf_posture_model_v5 \
+        -p 8501:8501 \
+        -v ~/Projects/cuna-bebe/saved_model/posture_model/5:/models/posture_model_v5/1 \
+        -e MODEL_NAME=posture_model_v5 \
+        tensorflow/serving
+API
+    Es el codigo que actualmente se esta utilizando para correr nuestra FASTAPI en nuestra instancia de EC2
+CUNA_APP
+    En esta carpeta podemos encontrar el codigo para nuestra app de expo, la mayoria del codigo es boileplate
+    pero lo importante lo podemos encontrar en cuna_app/app/(tabs)/index.tsx
+    Para correr nuestro proyecto solo debemos correr los siguientes comandos:
+    1. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+    2. Start the app
+
+   ```bash
+    npx expo start
+   ```
+Cuando estos sean ejecutados un codigo QR nos permitira accdeder desde nuestro celular estando en la misma red
